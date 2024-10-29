@@ -1,0 +1,1 @@
+[![build](https://github.com/phm-unsam/backend-2024-grupo2/actions/workflows/build.yml/badge.svg)](https://github.com/phm-unsam/backend-2024-grupo2/actions/workflows/build.yml) ![Coverage](./.github/badges/jacoco.svg)

@@ -1,0 +1,63 @@
+<form class = "form" [formGroup] = "this.newDateToFunctionShow" (ngSubmit) = "this.onSubmit()">
+	<p class = "form__tittle">FunctionShow Form</p>
+	<div class = "form__data">
+		<div class = "form__items">
+			<div class = "form__item">
+				<label><strong>Año</strong></label>
+				<input
+					class = "item__input"
+					type = "number"
+					[min] = "2024"
+					[max] = "2026"
+					formControlName = "year"
+				>
+			</div>
+			<div class = "form__item">
+				<label><strong>Mes</strong></label>
+				<input
+					class = "item__input"
+					type = "number"
+					[min] = "1"
+					[max] = "12"
+					formControlName = "month"
+				>
+			</div>
+			<div class = "form__item">
+				<label><strong>Día</strong></label>
+				<input
+					class = "item__input"
+					type = "number"
+					[min] = "1"
+					[max] = "31"
+					formControlName = "day"
+				>
+			</div>
+		</div>
+		<div class = "form__items">
+			<div class = "form__item">
+				<label><strong>Hora</strong></label>
+				<input
+					class = "item__input"
+					type = "number"
+					[min] = "0"
+					[max] = "23"
+					formControlName = "hour"
+				>
+			</div>
+			<div class = "form__item">
+				<label><strong>minutos</strong></label>
+				<input
+					class = "item__input"
+					type = "number"
+					[min] = "0"
+					[max] = "59"
+					formControlName = "minutes"
+				>
+			</div>
+		</div>
+	</div>
+	<div class = "form__buttons">
+		<button class = "form__button" type = "submit">Aceptar</button>
+		<button class = "form__button" (click) = "this.closeForm()">Cancelar</button>
+	</div>
+</form>

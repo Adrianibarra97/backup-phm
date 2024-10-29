@@ -1,0 +1,27 @@
+<div class = "header">
+	<p class = "header_title">Noches Mágicas</p> 
+	<nav class = "nav__container">
+		<ul class = "ul__container">
+			<li class = "nav__item"><a [routerLink] = "'/home'">Home</a></li>
+			<li *ngIf = "this.isNotAdimistrator()" class = "nav__item">
+				<a class = "fa-solid fa-basket-shopping" (click) = "this.shoppingCartRedirect()"></a>
+			</li>
+			<li class = "nav__item">
+				<a class = "nav__link" (click) = "this.redirectProfile()">
+					<i *ngIf = "!this.isAuthorized()" class = "fa-solid fa-user user__icon--item"></i>
+					<figure *ngIf = "this.isAuthorized()" class = "nav__image--container">
+						<img
+								class = "nav__image"
+								[src] = "this?.userData?.image"
+								alt = "user-header"
+							>
+					</figure>
+					<p class = "nav__text">{{ this?.userData?.name }} {{ this?.userData?.surname }}</p>
+				</a>
+			</li>
+			<li *ngIf = "this.isAuthorized()" class = "nav__item">
+				<a class = "fa-solid fa-right-from-bracket" (click) = "this.logout()"></a>
+			</li>
+		</ul>
+	</nav>
+</div>

@@ -1,0 +1,9 @@
+<app-search-bar (filter) = "this.searchShowsBy($event)"></app-search-bar>
+<div class = "home--distribution">
+	<app-grid 
+		class = "grid"
+		[content] = "this.shows"
+		[isAuthorized] = "this.isAuthorized"
+		[isUserPage] = "this.isUserPage"
+	></app-grid>
+</div>

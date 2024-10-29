@@ -1,0 +1,253 @@
+.admin__dash {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	min-height: 73vh;
+	padding-top: 1vh;
+	align-items: center;
+	overflow: hidden;
+}
+
+.dash__shows,
+.dash__functions,
+.dash__profit {
+	display: flex;
+	width: 100%;
+	height: 42vh;
+	justify-content: center;
+	border-bottom: 1px solid var(--secondaryColor);
+}
+
+.dash__functions {
+	height: 25vh;
+}
+
+.dash__profit {
+	flex-direction: column;
+	justify-content: none;
+	align-items: center;
+}
+
+.dash__shows--ul,
+.dash__functions--container {
+	display: block;
+	width: 100%;
+	padding: 0.5em;
+	align-items: center;
+	overflow-y: scroll;
+}
+
+.dash__shows--li,
+.dash__function {
+	display: block;
+	width: 98%;
+	height: 40%;
+	margin: 0.3em 0em;
+	border-radius: 0.5em;
+	box-shadow: 0px 5px 5px var(--secondaryColor);
+}
+
+.dash__shows--li {
+	background: var(--backgroundLoginColor);
+	outline: none;
+}
+
+.dash__shows--li:focus {
+	border: 2px solid var(--footerColor);
+	box-shadow: 2px 5px 10px var(--footerColor);
+}
+
+.dash__function {
+	width: 40%;
+	height: 4em;
+	margin: 2% 30%;
+	border: 1px solid var(--borderColor);
+	overflow: hidden;
+}
+
+.dash__function {
+	display: flex;
+	flex-direction: column;
+	font-size: 1.1em;
+	font-weight: bold;
+	border: 2px solid var(--borderColor);
+	border-radius: 0.5em;
+	background-color: var(--backgroundFunctionColor);
+	box-shadow: 0px 0px 5px var(--secondaryColor);
+	outline: none;
+}
+
+.dash__function--soldout {
+	border: 2px dashed var(--secondaryColor);
+	background-color: var(--functionSoldOut);
+}
+
+/* .dash__function:focus {
+	color: var(--backgroundLoginColor);
+	background: var(--footerColor);
+	box-shadow: 2px 5px 10px var(--headerColor);
+} */
+
+.functions__show--item {
+    display: flex;
+    width: 100%;
+    height: 33%;
+    justify-content: center;
+    align-items: center;
+}
+
+.profit {
+	display: flex;
+	flex-direction: column;
+	width: 60%;
+	height: 4em;
+	padding: 0.1em;
+	margin: 0.1em;
+	font-weight: bold;
+	border-radius: 0.3em;
+	justify-content: center;
+	align-items: center;
+	overflow: hidden;
+	border: 1px solid var(--secondaryColor);
+}
+
+.profit__item {
+	margin: 0.1em 0em;
+}
+
+.not__found--message {
+	display: flex;
+	width: 100%;
+	height: 100%;
+	align-items: center;
+	justify-content: center;
+}
+
+.red {
+	background: var(--profitErrorColor);
+	border: 3px solid var(--profitBorderErrorColor);
+}
+
+.yellow {
+	background: var(--profitWarningColor);
+	border: 3px solid var(--profitBorderWarningColor);
+}
+
+.green {
+	background: var(--profitSuccessColor);
+	border: 3px solid var(--profitBorderSuccessColor);
+}
+
+.button--container {
+	display: flex;
+	position: relative;
+	width: 10%;
+	padding: 0.2em;
+	justify-content: flex-end;
+	align-items: center;
+	overflow: hidden;
+}
+
+.button {
+	color: var(--backgroundLoginColor);
+	background: var(--footerColor);
+	margin: 0.1em;
+	font-size: 1.4em;
+	border: 1px solid var(--footerColor);
+	border-radius: 50%;
+	outline: none;
+	transition: all 0.5s;
+}
+
+.button:hover {
+	color: var(--footerColor);
+	background: var(--backgroundLoginColor);
+	opacity: 0.7;
+}
+
+.show__form {
+    display: flex;
+    position: absolute;
+	top: 20%;
+	left: 5%;
+	width: 90%;
+	height: 100%;
+	background: var(--backgroundLoginColor);
+	border: 1px solid var(--borderColor);
+	border-radius: 0.4em;
+    justify-content: center;
+    align-items: center;
+	overflow: hidden;
+}
+
+@media (min-width: 760px) {
+	.dash__shows {
+		height: 36vh;
+	}
+
+	.dash__functions,
+	.dash__profit {
+		height: 18vh;
+	}
+	
+	.dash__functions--container,
+	.dash__profit {
+		display: flex;
+		flex-direction: row;
+		width: auto;
+		overflow: hidden;
+	}
+
+	.dash__function {
+		width: 8em;
+		margin: 0.5em;
+		overflow: hidden;
+	}
+
+	.profit {
+		width: 20vw;
+		font-size: 0.9em;
+		justify-content: center;
+		margin: 0em 0.6em;
+	}
+
+	.profit__item {
+		margin: 0.3em 0em;
+	}
+
+	.button--container {
+		width: 5%;
+	}
+
+	.button {
+		font-size: 1.8em;
+	}
+
+	.show__form {
+		position: fixed;
+		top: 25%;
+		left: 15%;
+		width: 70%;
+		height: auto;
+	}
+}
+
+@media (min-width: 1024px) {
+	.dash__shows--ul {
+		width: 80%;
+	}
+
+	.profit {
+		width: 18vw;
+		font-size: 1.1em;
+	}
+
+	.button {
+		font-size: 2.2em;
+	}
+
+	.show__form {
+		left: 25%;
+		width: 50%;
+	}
+}

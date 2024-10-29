@@ -1,0 +1,14 @@
+.notfound--message {
+    display: flex;
+    width: 60%;
+    height: 26vh;
+    margin: 30vh 20%;
+    font-size: 2em;
+    font-weight: bolder;
+    border: 2px solid var(--footerColor);
+    border-radius: 0.5em;
+    box-shadow: 2px 4px 10px var(--footerColor);
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+}

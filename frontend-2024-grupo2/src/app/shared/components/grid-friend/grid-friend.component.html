@@ -1,0 +1,12 @@
+<div *ngIf = "this.content.length > 0" class = "grid">
+	<div *ngFor = "let item of this.content">
+		<app-user-friend
+			class = "grid__item"
+			[friend] = "item"
+			(update) = "this.gridUpdate()"
+		></app-user-friend>
+	</div>
+</div>
+<div *ngIf = "this.content.length <= 0" class = "no-grid-elements">
+	<h2>No se encontraron amigos</h2>	
+</div>

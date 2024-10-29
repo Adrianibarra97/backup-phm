@@ -1,0 +1,82 @@
+.comment {
+	display: flex;
+	position: absolute;
+	flex-direction: column;
+	height: 100%;
+	width: 100%;
+	background: var(--backgroundLoginColor);
+	overflow: hidden;
+}
+
+.comment__header {
+	display: flex;
+	height: 30%;
+	width: 100%;
+	overflow: hidden;
+	justify-content: space-between;
+}
+
+.comment__header--rigth {
+	display: flex;
+	height: 100%;
+	width: 75%;
+	align-items: center;
+}
+
+.comment__image--container {
+	display: flex;
+	width: 4.5em;
+	height: 4.5em;
+	margin: 0.3em;
+	border: 1px solid var(--footerColor);
+	border-radius: 50%;
+	box-shadow: 0px 0px 5px var(--footerColor);
+	overflow: hidden;
+}
+
+.comment__image {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.comment__data--date {
+	font-size: 0.8em;
+}
+
+.comment__header--left {
+	display: flex;
+	flex-direction: column;
+	width: 25%;
+	height: 100%;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.comment__data--button {
+	display: block;
+	height: 2em;
+	width: 2em;
+	font-size: 1.3em;
+	color: var(--footerColor);
+	background: var(--backgroundLoginColor);
+	border: 1px solid var(--footerColor);
+	border-radius: 0.2em;
+	outline: none;
+	transition: all 0.5s;
+}
+
+.comment__data--button:hover {
+	color: var(--backgroundLoginColor);
+	background: var(--footerColor);
+}
+
+.comment__body {
+	display: block;
+	width: 100%;
+	height: 70%;
+	padding: 1em;
+	font-size: 0.8em;
+	font-weight: bold;
+}

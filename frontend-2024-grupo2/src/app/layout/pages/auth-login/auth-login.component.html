@@ -1,0 +1,37 @@
+<div class="login">
+  <div class="login-triangle"></div>
+
+  <h2 class="login-header">Login</h2>
+
+  <form class="login-container" [formGroup]="user" (ngSubmit)="this.onSubmit()">
+    <p>
+      <input
+        class="ng-dirty ng-invalid mr-2"
+        data-testid="name"
+        type="text"
+        placeholder="Usuario"
+        formControlName="name"
+        autofocus
+        formControlName="username"
+      />
+    </p>
+    <p>
+      <input
+      type="password"
+      data-testid="password-input"
+      placeholder="*******"
+      formControlName="password"
+      />
+    </p>
+    <p-button
+        data-testid="login"
+        class="custom-button"
+        type="submit"
+        size="large"
+        pButton
+        [disabled]="isFormInvalid()"
+      >
+        ingresar
+      </p-button>
+  </form>
+</div>

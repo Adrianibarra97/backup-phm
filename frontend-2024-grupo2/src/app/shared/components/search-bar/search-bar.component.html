@@ -1,0 +1,20 @@
+<form class = "searchbar" [formGroup] = "this.filterShow" (ngSubmit) = "this.onSubmit()">
+	<div class = "searchbar__items">
+		<input class = "searchbar__item searchbar__item--padding" placeholder = "Artista" formControlName = "bandName">
+		<i class = "fa-solid fa-person searchbar__item searchbar__item--button"></i>
+	</div>
+	<div class = "searchbar__items">
+		<input class = "searchbar__item searchbar__item--padding" placeholder = "Locación" formControlName = "location">
+		<i class = "fa-sharp fa-solid fa-city searchbar__item searchbar__item--button"></i>
+	</div>
+	<div class = "searchbar__buttons">
+		<p-checkbox
+			*ngIf = "!this.isAdministrator() && this.isAuthorized()"
+			[binary] = "true"
+			inputId = "binary"
+			label = "Con amigos"
+			formControlName = "byFriends"
+		></p-checkbox>
+		<button type = "submit" class = "searchbar__button">Buscar</button>
+	</div>
+</form>

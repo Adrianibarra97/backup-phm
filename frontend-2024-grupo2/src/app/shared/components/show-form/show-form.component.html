@@ -1,0 +1,58 @@
+<form class = "form" [formGroup] = "this.newShow" (ngSubmit) = "this.onSubmit()">
+	<p class = "form__tittle">Show Form</p>
+	<div class = "form__data">
+		<div class = "form__items">
+			<div class = "form__item">
+				<label><strong>Nombre de la banda</strong></label>
+				<input
+					class = "item__input"
+					type = "text"
+					formControlName = "bandName"
+				>
+			</div>
+			<div class = "form__item">
+				<label><strong>Nombre del recital</strong></label>
+				<input
+					class = "item__input"
+					type = "text"
+					formControlName = "nameOfRecital"
+				>
+			</div>
+			<div class = "form__item">
+				<label><strong>Imagen del show</strong></label>
+				<input
+					class = "item__input"
+					type = "text"
+					formControlName = "image"
+				>
+			</div>
+		</div>
+		<div class = "form__items">
+			<div class = "form__item">
+				<label><strong>Costo de la banda</strong></label>
+				<input
+					class = "item__input"
+					type = "number"
+					[min] = "0"
+					formControlName = "costBand"
+				>
+			</div>
+			<div class = "form__item">
+				<label><strong>Lugar para el evento</strong></label>
+				<select
+					class = "item__input"
+					formControlName = "namePlaceOfShow"
+				>
+					<option
+						*ngFor = "let item of this?.possiblesPlaceOfShow"
+						[value] = "item.name"
+					>{{ item.name }}</option>
+				</select>
+			</div>
+		</div>
+	</div>
+	<div class = "form__buttons">
+		<button class = "form__button" type = "submit">Aceptar</button>
+		<button class = "form__button" (click) = "this.closeForm()">Cancelar</button>
+	</div>
+</form>

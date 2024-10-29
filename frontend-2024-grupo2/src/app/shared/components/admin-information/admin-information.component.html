@@ -1,0 +1,17 @@
+<div class= "information__content">
+	<div class = "administrator__container">
+		<p class = "administrator__item"><strong>Entradas vendidas totales</strong> {{ administratorData.totalAmountOfTickets }}</p>
+		<p
+			*ngFor="let item of this.administratorData.amountOfTicketPerSeatType"
+			class = "administrator__item"
+		>
+			<strong>Entradas vendidas {{ item.name }}</strong> {{ item.availableCapacity }}
+		</p>
+		<p class = "administrator__item"><strong>Recaudación total</strong> {{ administratorData.totalSales }}</p>
+		<p class = "administrator__item"><strong>Costo total</strong> {{ administratorData.totalCost }}</p>
+		<p class = "administrator__item"><strong>Gente en espera</strong> {{ administratorData.amountPeopleWaiting }}</p>
+	</div>
+	<div class = "button__container">
+		<button class = "button__item" (click) = "this.cancelFunctionShow()">Volver</button>
+	</div>
+</div>

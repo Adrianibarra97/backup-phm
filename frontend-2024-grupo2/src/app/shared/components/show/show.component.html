@@ -1,0 +1,58 @@
+<div class = "show">
+	<figure class = "show__image" [routerLink] = "'/user-detail/' + this?.show?.id">
+		<img class = "show__image--size" [src] = "show.img" alt = "show-image">
+	</figure>
+	<div class = "information__show">
+		<div class = "information__show--header">
+			<p data-testid = "showBandName" class = "show__name"><strong>{{ show.bandName }}</strong></p>
+			<i class = "fa-solid fa-star show_status"><span data-testid = "showScore">{{ show.score }}</span>( {{ show.amountOfComments }} )</i>
+		</div>
+		<div class = "information__show--middle">
+			<p data-testid = "placeOfShowName" ><span>Ubicacion:</span> {{ show.placeOfShow.name }}</p>
+			<p class = "information__show--date">
+					<strong>Fechas</strong> {{ this.functionsOfShow().slice(0, 2) }}
+			</p>
+		</div>
+		<div class = "information__show--bottom">
+			<div class = "image__size">
+				<p>También van a asistir</p>
+				<figure class = "image__info--container" *ngFor = "let item of show.friends.slice(0,1)">
+					<img class = "image__info" [src] = 'item.image' alt = "friends">
+				</figure>
+				<p>+ {{ show.friends.length }} amigos </p>
+			</div>
+			<div *ngIf = "!this.isUserPage" class = "information__bottom">
+				<p data-testid = "showRangePrice">Desde {{ show.minPrice }} hasta {{ show.maxPrice }}</p>
+				<button *ngIf = "this.isAuthorized" class = "searchbar__button">Comprar</button>
+			</div>
+			<div *ngIf = "this.isUserPage" class = "information__bottom">
+				<p class = "information__bottom--p">${{ this.show.ticketPriceForUser }}</p>
+				<button
+					*ngIf = "this.isAuthorized"
+					class = "searchbar__button"
+					(click) = "this.openCommentForm()"
+				>
+					Commentar
+					<form
+						*ngIf = "this.canComment"
+						class = "comment__form--container"
+						[formGroup] = "this.commentForm"
+						(ngSubmit) = "this.comment()"
+					>
+						<textarea
+							class = "comment__form--message"
+							placeholder = "Ingresa tu comentario:"
+							formControlName = "message"
+						></textarea>
+						<button
+							class = "searchbar__button message--button" 
+							type = "submit"
+						>Enviar</button>
+			</form>
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+

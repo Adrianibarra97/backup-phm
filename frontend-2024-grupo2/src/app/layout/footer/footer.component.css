@@ -1,0 +1,28 @@
+.footer {
+	display: flex;
+	position: relative;
+	height: 100%;
+	width: 100%;
+	padding: 1rem;
+	font-size: 1.25rem;
+	font-family: var(--fontFamily);
+	background-color: var(--footerColor);
+	color: var(--backgroundLoginColor);
+	justify-content: center;
+	align-items: center;
+}
+
+.footer__i--instragram {
+    text-decoration: none;
+    color: var(--backgroundLoginColor);
+}
+
+.footer__i--facebook {
+	margin: 0 0.5rem;
+    text-decoration: none;
+    color: var(--backgroundLoginColor);
+}
+
+.footer__span--label {
+    font-weight: bolder;
+}

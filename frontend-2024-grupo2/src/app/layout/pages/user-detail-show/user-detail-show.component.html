@@ -1,0 +1,72 @@
+<div class = "detailshow">
+  <div class = "detailshow__header">
+    <div>
+      <p class = "detailshow__title"> {{ this?.show?.bandName }} - {{ this?.show?.nameOfRecital }}</p>
+    </div>
+    <div class = "detailshow__header--container">
+      <div class = "detailshow__item">
+        <i class = "fa-solid fa-star detailshow__element"></i>
+        <p class = "detailshow__element">
+          <strong>{{ this?.show?.score }} puntos</strong> - {{ this?.show?.amountOfComments }} opiniones
+        </p>
+      </div>
+      <div class = "detailshow__item">
+        <i class ="fa-sharp fa-solid fa-location-dot detailshow__element"></i>
+        <p class = "detailshow__element" class = "detailshow__element"><strong>{{ this?.show?.placeOfShow?.name }}</strong></p>
+      </div>
+      <div class = "detailshow__item">
+        <p>Geolocalización: {{ this.doubleAGradoMinutoSegundo(this?.show?.placeOfShow!.mapLocation.latitud) }} {{ this.doubleAGradoMinutoSegundo(this?.show?.placeOfShow!.mapLocation.longitud) }}</p>
+      </div>
+    </div>
+  </div>
+  <div class = "show__detail--middle">
+    <figure class = "image__container">
+      <img class = "image__item" [src] = "this?.show?.img" alt="show-img">
+    </figure>
+    <div class = "show__info--container">
+      <div class = "function__create--container">
+        <div class = "function__container">
+          <button
+            class = "function--item"
+            *ngFor = "let item of this?.show?.functionShow"
+            [ngClass] = "{ 'isSoldDout' : item.isSoldDout, 'notSoldOut': !item.isSoldDout}"
+            (click) = "this.setFunction(item)"
+          >
+            <p class = "functions__show--item" >{{ this.getDayOfShow(item.hourOfFunction) }}</p>
+            <p class = "functions__show--item">{{ item.hourOfFunction.getDate() }}/{{ item.hourOfFunction.getMonth() }}</p>
+            <p class = "functions__show--item">{{ item.hourOfFunction.getHours() }} hs</p>
+          </button>
+        </div>
+        <div *ngIf = "this.isAdministrator()" class = "button--container">
+          <button
+            class = "fa-solid fa-circle-plus button"
+            (click) = "this.openFunctionShowForm()"
+          ></button>
+        </div>
+      </div>
+      <app-tickets-consumer-information 
+        *ngIf = "this.isConsumer()"
+        class = "function__insert"
+        [show] = "this.show"
+        [functionShow] = "this.functionShow"
+      ></app-tickets-consumer-information>
+      <app-admin-information
+        *ngIf = "this.isAdministrator()"
+        class = "function__insert"
+        (cancelFunctionShowEvent) = "this.cancelFunctionShow()"
+        [administratorData] = "this.administratorData"
+      ></app-admin-information>
+    </div>
+  </div>
+  <app-function-show-form 
+    *ngIf = "this.displayFunctionShowForm"
+    class = "show__form"
+    (closeFormEvent) = "this.closeFunctionShowForm()"
+    (newFunctionShow) = "createFunctionShow($event)"
+  ></app-function-show-form>
+  <app-grid-comment
+    *ngIf = "this.isConsumer()"
+    [content] = "this.comments"
+    [activeDelete] = "false"
+  ></app-grid-comment>
+</div>

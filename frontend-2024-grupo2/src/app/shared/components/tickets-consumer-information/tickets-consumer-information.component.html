@@ -1,0 +1,30 @@
+<div class= "information__content">
+  <div class = "ticket__info--container">
+    <div class = "ticket__item" *ngFor = "let item of this?.show?.placeOfShow?.ticketTypes">
+      <p class = "ticket__show--item"><strong>{{ item.seatType.name }}</strong></p>
+      <p class = "ticket__show--item">${{ item.price }}</p>
+      <input
+        class = "ticket__input"
+        type = "number"
+        min = 0
+        [max] = 'this.getMaxCapacity(item.seatType)'
+        (change) = "this.detectedChanges(item.seatType.name, $event)"
+      >
+    </div>
+  </div>
+  <div class = "button__container">
+    <button
+      class = "button__item"
+      [routerLink] = "'/home'"
+    >Volver</button>
+    <button 
+      *ngIf = "!this.functionsAreSoldOut()"
+      class = "button__item"
+      (click) = "this.buyTickets()"
+    >Agregar al pedido</button>
+    <button 
+      *ngIf = "this.functionsAreSoldOut()"
+      class = "button__item"
+    >Avisarme nueva función</button>
+  </div>
+</div>

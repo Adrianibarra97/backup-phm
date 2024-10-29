@@ -1,0 +1,112 @@
+:root {
+	--footerColor: #4d8296;
+	--headerColor: rgb(24,21,40);
+	--headerHoverColor: rgb(48, 44, 70);
+	--secondaryColor: grey;
+	--backgroundLoginColor: white;
+	--borderColor: black;
+	--imageBorderColor: rgb(188, 47, 47);
+	--functionBorderContainer: rgb(215, 224, 224);
+	--functionBackgroundColor1: rgb(125, 125, 226);
+	--functionBackgroundColor2: rgb(188, 223, 148);
+	--functionSoldOut: rgb(182, 246, 239);
+	--backgroundFunctionColor: rgb(73, 145, 158);
+	--profitBorderErrorColor: red;
+	--profitErrorColor: rgb(224, 74, 74);
+	--profitBorderWarningColor: yellow;
+	--profitWarningColor: rgb(228, 228, 164);
+	--profitBorderSuccessColor: green;
+	--profitSuccessColor: rgb(174, 243, 174);
+	--fontFamily: 'Times New Roman';
+}
+
+body{
+	height: 100vh;
+}
+
+*,body {
+	padding: 0;
+	margin:0;
+	box-sizing: border-box;
+}
+
+.scroll--style {
+	background-color: var(--backgroundLoginColor);
+}
+
+.scroll--style::-webkit-scrollbar {
+	width: 0.5rem;
+}
+  
+.scroll--style::-webkit-scrollbar-thumb {
+	background-color: var(--footerColor);
+	border-radius: 5rem;
+}
+
+.header {
+	display: block;
+	height: 12%;
+	width: 100%;
+	overflow: hidden;
+}
+
+.main {
+	display: block;
+	min-height: 82vh;
+	width: 100%;
+	background-color: var(--backgroundLoginColor);
+	overflow: hidden;
+}
+
+.main-auth {
+	display: block;
+	min-height: 94%;
+	width: 100%;
+	overflow: hidden;
+	background-color: var(--backgroundLoginColor);
+}
+
+.footer {
+	display: block;
+	height: 6%;
+	width: 100%;
+	overflow: hidden;
+}
+
+.aside {
+	width: 100%;
+	background-color: var(--backgroundLoginColor);
+}
+
+.grid {
+	width: 100%;
+}
+
+.body--distribution {
+	display: flex;
+	flex-direction: column;
+}
+
+.section--distribution {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+}
+
+@media (min-width: 769px) {
+	.body--distribution {
+		flex-direction: row;
+	}
+
+	.section--distribution {
+		width: 80%;
+	}
+
+	.aside {
+		width: 25%;
+	}
+
+	.grid {
+		width: 75%;
+	}
+}

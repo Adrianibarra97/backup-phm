@@ -1,0 +1,22 @@
+<div class = "comment">
+	<div class = "comment__header">
+		<div class = "comment__header--rigth">
+			<figure class = "comment__image--container">
+				<img class = "comment__image" [src] = "this?.comment?.imageShow" alt = "show">
+			</figure>
+			<div class = "comment__data--container">
+				<p class = "comment__data--name"><strong>para {{ this?.comment?.bandName }}</strong></p>
+				<p class = "comment__data--date">{{ this?.comment?.dateComment }}</p>
+			</div>
+		</div>
+		<div class = "comment__header--left">
+      <p class = "fa-solid fa-star"> {{ this?.comment?.score }}</p>
+      <button
+				*ngIf = "this.activeDelete"
+        class = "fa-solid fa-trash-can comment__data--button"
+        (click) = "this.deleteComment(this.comment.id)"
+      ></button>
+    </div>
+	</div>
+  <div class = "comment__body">{{ this?.comment?.description }}</div>
+</div>

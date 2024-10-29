@@ -1,0 +1,13 @@
+.shopping--cart {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.button--cart {
+    display: block;
+    width: 15em;
+    height: 4em;
+}

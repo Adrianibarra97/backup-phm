@@ -1,0 +1,149 @@
+.show {
+	display: flex;
+	position: absolute;
+	flex-direction: column;
+	height: 100%;
+	width: 100%;
+	border-radius: 6% ;
+	background-color: var(--backgroundLoginColor);
+	overflow: hidden;
+}
+
+.show__image {
+	height: 50%;
+	width: 100%;
+	border-top-right-radius: 6%;
+	border-top-left-radius: 6%;
+	overflow: hidden;
+}
+
+.show__image--size {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.information__show {
+	display: grid;
+	grid-template-rows: repeat(4fr 1fr);
+	grid-template-columns: repeat(2fr 1fr);
+	height: 50%;
+	padding: 0% 1%;
+	background-color: var(--backgroundLoginColor);
+	font-size: 0.8rem;
+}
+
+.information__show--header{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.information__show--middle{
+	display: flex;
+	justify-content: space-between;
+	margin-top: 20px;
+}
+ .information__show--middle span{
+	font-weight: bold;
+}
+
+.information__show--date{
+	color: var(--secondaryColor);
+}
+
+.information__show--image {
+	display: flex;
+	justify-content: space-between;
+}
+
+.image__size {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.image__info--container {
+	height: 3rem;
+	width: 2.6rem;
+	border-radius: 50%;
+	align-content: center;
+	border: 2px solid var(--imageBorderColor);
+	object-fit: cover;
+	overflow: hidden;
+}
+
+.image__info {
+	width: 100%;
+	height: 100%;
+}
+
+.information__bottom {
+	display: flex;
+	width: 90%;
+	margin: 0 5%;
+	margin-top: 1em;
+	font-weight: bold;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.information__bottom--p {
+	font-size: 1.2em;
+}
+
+.searchbar__button {
+	display: flex;
+	padding: 0.5em;
+	font-size: 1.1em;
+	font-weight: bolder;
+	color: var(--footerColor);
+	background: var(--backgroundLoginColor);
+	border: 1px solid var(--footerColor);
+	border-radius: 0.5em;
+	overflow: hidden;
+	transition: all 0.5s;
+}
+
+.message--button {
+	margin: 1em;
+}
+
+.searchbar__button:hover {
+	background: var(--footerColor);
+	color: var(--backgroundLoginColor);
+}
+
+.comment__form--container {
+	display: flex;
+	flex-direction: column;
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	background: var(--headerColor);
+	justify-content: center;
+	align-items: center;
+	overflow: hidden;
+}
+
+.comment__form--message {
+	display: block;
+	width: 80%;
+	height: 50%;
+	padding: 0.5em;
+	font-size: 1.2em;
+	font-weight: bold;
+	color: var(--footerColor);
+	border: 2px solid var(--footerColor);
+	background: var(--backgroundLoginColor);
+	border-radius: 0.5em;
+	outline: none;
+	box-shadow: 0px 2px 10px var(--footerColor);
+	resize: none;
+}
+
+.comment__form--message::placeholder {
+	color: var(--footerColor);
+}

@@ -1,0 +1,83 @@
+<aside class = "banner">
+	<form
+		class = "banner__items"
+		[formGroup] = "this.updatedUser"
+		(ngSubmit) = "this.onSubmit()"
+	>
+		<figure class = "banner__image--container">
+			<img class = "banner__image" [src] = "this?.user?.imageURL" alt = "user">
+		</figure>
+		<div class = "banner__item">
+			<label class = "banner__item--label">Nombres</label>
+			<input
+				data-testid = "name"
+				class = "banner__item--input"
+				type = "text"
+				placeholder = "Name:"
+				[defaultValue] = "this?.user?.name"
+				formControlName = "name"
+			>
+		</div>
+		<div class = "banner__item">
+			<label class = "banner__item--label">Apellidos</label>
+			<input
+				data-testid = "surname"
+				class = "banner__item--input"
+				type = "text"
+				placeholder = "Surname:"
+				[defaultValue] = "this?.user?.surname"
+				formControlName = "surname"
+			/>
+		</div>
+		<div class = "banner__item">
+			<label class = "banner__item--label">Fecha de nacimiento</label>
+			<input
+				data-testid = "birth-of-date"
+				class = "banner__item--input disabled"
+				type = "text"
+				placeholder = "Birth of Date:"
+				[defaultValue] = "this.birthOfDate()"
+				disabled
+			/>
+		</div>
+		<div class = "banner__item--center">
+			<p
+				data-testid = "age"
+				class = "banner__item--p"
+			>
+				<strong>Edad </strong>{{ this.age() }}
+			</p>
+			<button
+				[ngClass] = "{'banner__button':this.detectedChanges(), 'banner_button--disabled':!this.detectedChanges()}"
+				type = "submit"
+			>Guardar cambios</button>
+		</div>
+		<div class = "banner__item">
+			<label class = "banner__item--label">DNI</label>
+			<input
+				data-testid = "dni"
+				class = "banner__item--input"
+				type = "number"
+				[min] = "10000000"
+				[max]= "100000000"
+				placeholder = "DNI:"
+				[defaultValue] = "this?.user?.dni"
+				formControlName = "dni"
+			/>
+		</div>
+	</form>
+	<div class = "banner__items">
+		<div class = "banner__item--center">
+			<p
+				data-testid = "available-money"
+				class = "banner__item--p"
+			>
+				<strong>Crédito </strong>${{ this?.user?.availableMoney }}
+			</p>
+			<button
+				class = "banner__button"
+				(click) = "this.addCredit()"
+			>Sumar crédito</button>
+		</div>
+	</div>
+</aside>

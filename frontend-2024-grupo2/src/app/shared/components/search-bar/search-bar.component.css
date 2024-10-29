@@ -1,0 +1,114 @@
+.searchbar {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.searchbar__items {
+    display: flex;
+    height: 4em;
+    width: 80%;
+    margin: 1em;
+    box-shadow: 0px 0px 4px;
+    border-radius: 1.5rem;
+    background: var(--footerColor);
+    overflow: hidden;
+}
+
+.searchbar__item {
+    height: 100%;
+    padding: 0.2em;
+    font-size: 1rem;
+    border: none;
+    outline: none;
+    width: 80%;
+}
+
+.searchbar__item--padding {
+    padding-left: 1em;
+}
+
+.searchbar__item--button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%; 
+    color: var(--backgroundLoginColor);
+    background-color: transparent;  
+}
+
+.searchbar__buttons {
+    display: flex;
+    width: 80%;
+    justify-content: space-around;
+}
+
+.searchbar__button {
+    display: flex;
+    padding: 0.5em;
+    font-size: 1.2em;
+    font-weight: bolder;
+    color: var(--footerColor);
+    background: var(--backgroundLoginColor);
+    border: 1px solid var(--footerColor);
+    border-radius: 0.5em;
+    overflow: hidden;
+    transition: all 0.5s;
+}
+
+.searchbar__button:hover {
+    background: var(--footerColor);
+    color: var(--backgroundLoginColor);
+}
+
+@media (min-width: 401px) {    
+    .searchbar__item {
+        width: 90%;
+    }
+
+    .searchbar__item--button {
+        width: 10%;
+    }
+}
+
+@media (min-width: 769px) {
+    .searchbar {
+        flex-direction: row;
+        height: 9vh;
+    }
+
+    .searchbar__items {
+        width: 30%;
+        height: 2em;
+        overflow: hidden;
+    }
+    
+    .searchbar__item {
+        width: 85%;
+    }
+
+    .searchbar__item--button {
+        width: 15%;
+    }
+
+    .searchbar__buttons {
+        width: 33%;
+        justify-content: space-between;
+    }
+}
+
+@media (min-width: 1200px) {
+    .searchbar__items {
+        height: 3rem;
+        margin: 0em 0.5em;
+    }
+
+    .searchbar__buttons {
+        width: 15%;
+    }
+}

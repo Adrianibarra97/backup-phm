@@ -1,0 +1,13 @@
+<div class = "friend">
+	<figure class = "friend__image--container">
+		<img class = "friend__image" [src] = "this?.friend?.image" alt = "user">
+	</figure>
+	<div class = "friend__data--container">
+		<p class = "friend__data--name"><strong>{{ this.friend.name }}</strong></p>
+		<p class = "friend__data--country">{{ this.friend.country }}</p>
+	</div>
+	<button
+		class = "fa-solid fa-trash-can friend__data--button"
+		(click) = "this.deleteFriend(this.friend.id)"
+	></button>
+</div>

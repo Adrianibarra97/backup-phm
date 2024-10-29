@@ -1,0 +1,70 @@
+<app-search-bar (filter) = "this.searchShowsBy($event)"></app-search-bar>
+<div class = "admin__dash">
+	<div class = "dash__shows">
+		<ul *ngIf = "!(this?.shows?.length == 0)" class = "dash__shows--ul scroll--style">
+			<button
+				*ngFor = "let item of this?.shows"
+				class = "dash__shows--li"
+				(click) = "this.selectShow(item)"
+			>
+				<app-show-administrator [show] = "item" (update) = "this.updateShowList()"></app-show-administrator>
+			</button>
+		</ul>
+		<p *ngIf = "this?.shows?.length == 0" class = "not__found--message">No se encontraron shows a mostrar.</p>
+		<div class = "button--container">
+			<button
+				class = "fa-solid fa-circle-plus button"
+				(click) = "this.openShowForm()"
+			></button>
+		</div>
+	</div>
+	<div class = "dash__functions">
+		<ul *ngIf = "this.functions.length > 0" class = "dash__functions--container scroll--style">
+			<button
+				*ngFor = "let item of this.functions"
+				[ngClass] = "this.soldOutStyle(item)"
+			>
+				<p class = "functions__show--item" >{{ this.getDayOfShow(item.hourOfFunction) }}</p>
+				<p class = "functions__show--item">{{ item.hourOfFunction.getDate() }}/{{ item.hourOfFunction.getMonth() }}</p>
+				<p class = "functions__show--item">{{ item.hourOfFunction.getHours() }} hs</p>
+			</button>
+		</ul>
+		<p *ngIf = "this.functions.length == 0" class = "not__found--message">No se encontraron funciones a mostrar.</p>
+		<div class = "button--container">
+			<button
+				class = "fa-solid fa-circle-plus button"
+				(click) = "this.openFunctionShowForm()"
+			></button>
+		</div>
+	</div>
+	<div class = "dash__profit scroll--style">
+		<div [ngClass] = "this.salesProfitStyle()">
+			<p class = "profit__item"><strong>Ventas</strong></p>
+			<p class = "profit__item">${{ this.administratorData.totalSales }}</p>
+		</div>
+		<div [ngClass] = "this.peopleProfitStyleClass">
+			<p class = "profit__item"><strong>Personas en espera</strong></p>
+			<p class = "profit__item">{{ this.administratorData.amountPeopleWaiting }} personas</p>
+		</div>
+		<div [ngClass] = "this.profitStyle()">
+			<p class = "profit__item"><strong>Rentabilidad</strong></p>
+			<p class = "profit__item">{{ this.profit() }}%</p>
+		</div>
+		<div [ngClass] = "this.soldOutProfitStyle()">
+			<p class = "profit__item"><strong>Funciones Sold-Out</strong></p>
+			<p class = "profit__item">{{ this.administratorData.amountFunctionsSoldOut }}</p>
+		</div>
+	</div>
+	<app-function-show-form 
+		*ngIf = "this.displayFunctionShowForm"
+		class = "show__form"
+		(closeFormEvent) = "this.closeFunctionShowForm()"
+		(newFunctionShow) = "createFunctionShow($event)"
+	></app-function-show-form>
+	<app-show-form
+		*ngIf = "this.displayShowForm"
+		class = "show__form"
+		(closeFormEvent) = "this.closeShowForm()"
+		(newShowEvent) = "this.createShow($event)"
+	></app-show-form>
+</div>

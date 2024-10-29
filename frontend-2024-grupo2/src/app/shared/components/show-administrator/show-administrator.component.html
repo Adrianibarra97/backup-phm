@@ -1,0 +1,30 @@
+<div class = "show__admin">
+	<div class = "show__item show__item--left">
+		<figure class = "show__image" [routerLink] = "'/user-detail/' + this?.show?.id">
+			<img class = "show__image--size" [src] = "show.img" alt = "show-image">
+		</figure>
+	</div>
+	<div class = "show__item show__item--center">
+		<div class = "show__center show__center--top">
+			<p><strong>{{ this?.show?.bandName }} {{ this?.show?.nameOfRecital }}</strong></p>
+		</div>
+		<div class = "show__center show__center--middle">
+			<p><strong class = "text__bolder">Ubicación: </strong> {{ this?.show?.placeOfShow?.name }}</p>
+			<p>Fechas: {{ this?.show?.placeOfShow?.name }}</p>
+		</div>
+		<div class = "show__center show__center--bottom">
+			<strong class = "text__bolder">Desde {{ this?.show?.minPrice }} hasta {{ this?.show?.maxPrice }}</strong>
+		</div>
+
+	</div>
+	<div class = "show__item show__item--right">
+		<button
+			class = "fa-solid fa-pencil comment__data--button"
+			(click) = "this.editShow()"
+		></button>
+		<button
+			class = "fa-solid fa-trash-can comment__data--button"
+			(click) = "this.deleteShow()"
+		></button>
+	</div>
+</div>

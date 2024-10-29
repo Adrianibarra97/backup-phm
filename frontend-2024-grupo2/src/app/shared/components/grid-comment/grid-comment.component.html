@@ -1,0 +1,13 @@
+<div *ngIf = "this.content.length > 0" class = "grid">
+	<div *ngFor = "let item of this.content">
+		<app-user-comment
+			class = "grid__item"
+			[comment] = "item"
+			[activeDelete] = "this.activeDelete"
+			(update) = "this.gridUpdate()"
+		></app-user-comment>
+	</div>
+</div>
+<div *ngIf = "this.content.length <= 0" class = "no-grid-elements">
+	<h2>No se encontraron comment disponibles</h2>	
+</div>
